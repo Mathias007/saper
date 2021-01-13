@@ -178,6 +178,11 @@ html {
     background-image: url("../assets/flag.svg");
 }
 
+.cell--is-mine {
+    background-image: url("../assets/bomb.svg");
+    background-color: var(--alarm-color);
+}
+
 .hide {
     visibility: hidden;
 }
