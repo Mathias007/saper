@@ -54,7 +54,7 @@ class Game extends UI {
     }
 
     #handleElements() {
-        this.#board = this.getElement(this.#UiSelectors.board);
+        this.#board = this.getElement(this.UiSelectors.board);
     }
 
     #addCellsEventListeners() {
