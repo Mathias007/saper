@@ -160,8 +160,7 @@ class Game extends UI {
         if (cell.isMine) {
             this.#endGame(false);
         }
-
-        cell.revealCell();
+        this.#setCellValue(cell);
     }
 
     #revealMines() {
@@ -169,6 +168,45 @@ class Game extends UI {
             .flat()
             .filter(({ isMine }) => isMine)
             .forEach((cell) => cell.revealCell());
+    }
+
+    #setCellValue(cell) {
+        let minesCount = 0;
+        for (
+            let rowIndex = Math.max(cell.y - 1, 0);
+            rowIndex <= Math.min(cell.y + 1, this.#numberOfRows - 1);
+            rowIndex++
+        ) {
+            for (
+                let colIndex = Math.max(cell.x - 1, 0);
+                colIndex <= Math.min(cell.x + 1, this.#numberOfCols - 1);
+                colIndex++
+            ) {
+                if (this.#cells[rowIndex][colIndex].isMine) minesCount++;
+            }
+        }
+
+        cell.value = minesCount;
+        cell.revealCell();
+
+        if (!cell.value) {
+            for (
+                let rowIndex = Math.max(cell.y - 1, 0);
+                rowIndex <= Math.min(cell.y + 1, this.#numberOfRows - 1);
+                rowIndex++
+            ) {
+                for (
+                    let colIndex = Math.max(cell.x - 1, 0);
+                    colIndex <= Math.min(cell.x + 1, this.#numberOfCols - 1);
+                    colIndex++
+                ) {
+                    const cell = this.#cells[rowIndex][colIndex];
+                    if (!cell.isReveal) {
+                        this.#clickCell(cell);
+                    }
+                }
+            }
+        }
     }
 
     #setStyles() {
