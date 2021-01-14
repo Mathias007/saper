@@ -7,7 +7,7 @@ export class UI {
         resetButton: "[data-button-reset]",
         easyButton: "[data-button-easy]",
         normalButton: "[data-button-normal]",
-        resetButton: "[data-button-expert]",
+        expertButton: "[data-button-expert]",
         modal: "[data-modal]",
         modalHeader: "[data-modal-header]",
         modalButton: "[data-modal-button]",
