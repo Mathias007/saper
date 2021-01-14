@@ -2,6 +2,7 @@ import { Cell } from "./Cell.js";
 import { UI } from "./UI.js";
 import { Counter } from "./Counter.js";
 import { Timer } from "./Timer.js";
+import { ResetButton } from "./ResetButton.js";
 
 class Game extends UI {
     #config = {
@@ -34,6 +35,13 @@ class Game extends UI {
     #cellsElements = null;
 
     #board = null;
+    #buttons = {
+        modal: null,
+        easy: null,
+        normal: null,
+        expert: null,
+        reset: new ResetButton(),
+    };
 
     initializeGame() {
         this.#handleElements();
@@ -76,6 +84,14 @@ class Game extends UI {
 
     #handleElements() {
         this.#board = this.getElement(this.UiSelectors.board);
+        this.#buttons.modal = document.getElements(
+            this.UiSelectors.modalButton
+        );
+        this.#buttons.easy = document.getElements(this.UiSelectors.easyButton);
+        this.#buttons.normal = document.getElements(
+            this.UiSelectors.normalButton
+        );
+        this.#buttons.expert = document.getElements(this.UiSelectors.expert);
     }
 
     #addCellsEventListeners() {
