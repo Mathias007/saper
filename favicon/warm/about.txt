@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Asap
+- Font Author: Copyright 2018 The Asap Project Authors (https://github.com/Omnibus-Type/Asap) with Reserved Font Name "Asap".
+- Font Source: http://fonts.gstatic.com/s/asap/v13/KFOoCniXp96a-zwU4UROGzY.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)
